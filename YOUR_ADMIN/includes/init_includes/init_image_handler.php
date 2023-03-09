@@ -164,7 +164,7 @@ if (isset($_SESSION['admin_id'])) {
                 1171,
                 ['Center', 'NorthWest', 'North', 'NorthEast', 'East', 'SouthEast', 'South', 'SouthWest', 'West'],
                 'IH watermark gravity',
-                'Select the position for the watermark relative to the image\'s canvas. Default is <strong>Center</Strong>.'
+                'Select the position for the watermark relative to the image\\\'s canvas. Default is <strong>Center</Strong>.'
             ]
         ];
         foreach ($configuration_items as $menu_item) {
