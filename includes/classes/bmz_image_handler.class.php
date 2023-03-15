@@ -766,8 +766,8 @@ class ih_image
             $newwidth = $this->canvas['width'];
             $newheight = $this->canvas['height'];
         }
-        $startwidth = (int)($this->canvas['width'] - $newwidth) / 2;
-        $startheight = (int)($this->canvas['height'] - $newheight) / 2;
+        $startwidth = (int)(($this->canvas['width'] - $newwidth) / 2);
+        $startheight = (int)(($this->canvas['height'] - $newheight) / 2);
 
         if ($ihConf['gdlib'] > 1 && function_exists("imagecreatetruecolor")) {
             $tmpimg = imagecreatetruecolor($newwidth, $newheight);
