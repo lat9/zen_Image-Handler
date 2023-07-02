@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -65,7 +65,7 @@ a[target=_blank] { text-decoration: underline; }
 
 <body>
   <h1>Image Handler<sup>5</sup> for Zen Cart v1.5.7 (and later)</h1>
-  <h3>Version 5.3.3 by lat9, Zen4All, brittainmark, torvista, proseLA and marco-pm</h3>
+  <h3>Version 5.3.4 by lat9, Zen4All, brittainmark, torvista, proseLA, marco-pm and pilou2</h3>
   <p>Current Support Thread at Zen Cart Forums: <a href="https://www.zen-cart.com/showthread.php?222983-Image-Handler-5-(for-v1-5-5)-Support-Thread" target="_blank">https://www.zen-cart.com/showthread.php?222983-Image-Handler-5-(for-v1-5-5)-Support-Thread</a></p>
 
   <p><strong>Notes:</strong></p>
@@ -425,6 +425,13 @@ define('SITEMAPXML_PRODUCTS_IMAGES_FUNCTION', '<b class="red">true</b>'); // tru
 
             <div id="changes">
                 <ul>
+                    <li>v5.3.4, 2023-07-02:<ul>
+                        <li>BUGFIX: Correct <var>/bmz_cache/.htaccess</var> for Apache 2.4 installations (pilou2).</li>
+                        <li>The following files were changed:<ol>
+                            <li>/bmz_cache/.htaccess</li>
+                            <li>/YOUR_ADMIN/includes/init_includes/init_image_handler.php</li>
+                        </ol></li>
+                    </ul></li>
                     <li>v5.3.3, 2023-04-26:<ul>
                         <li>BUGFIX: Correct MySQL error on initial install due to unescaped single-quotes.</li>
                         <li>BUGFIX: Correct &quot;Implicit conversion&quot; PHP Warning.</li>

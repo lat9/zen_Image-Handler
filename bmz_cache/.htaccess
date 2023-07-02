@@ -1,7 +1,7 @@
 #
-# @copyright Copyright 2003-2013 Zen Cart Development Team
+# @copyright Copyright 2003-2022 Zen Cart Development Team
 # @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
-# @version GIT: $Id: Author: DrByte  Fri May 17 14:29:18 2013 -0400 Modified in v1.5.2 $
+# @version $Id: torvista 2022 Aug 03 Modified in v1.5.8-alpha2 $
 #
 # This is used with Apache WebServers
 #
@@ -19,23 +19,30 @@
 
 # deny *everything*
 <FilesMatch ".*">
-  Order Allow,Deny
-  Deny from all
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    Order Allow,Deny
+    Deny from all
+  </IfModule>
 </FilesMatch>
 
 # but now allow just *certain* necessary files:
-<FilesMatch "(?i).*\.(jpe?g|gif|webp|png|swf)$" >
-  Order Allow,Deny
-  Allow from all
+<FilesMatch "(?i).*\.(jpe?g|gif|webp|png)$">
+  <IfModule mod_authz_core.c>
+    Require all granted
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    Order Allow,Deny
+    Allow from all
+  </IfModule>
 </FilesMatch>
 
 IndexIgnore */*
 
-
 ## NOTE: If you want even greater security to prevent hackers from running scripts in this folder, uncomment the following line (if your hosting company will allow you to use OPTIONS):
 # OPTIONS -Indexes -ExecCGI
-
-
 
 ##################
 ## Optional caching improvements
@@ -45,7 +52,7 @@ IndexIgnore */*
   Header unset Pragma
   FileETag None
   Header unset ETag
-  <FilesMatch "(?i).*\.(jpe?g|gif|webp|png|swf)$">
+  <FilesMatch "(?i).*\.(jpe?g|gif|webp|png)$">
     Header set Cache-control "max-age=864000, public, must-revalidate"
     Header unset Last-Modified
   </FilesMatch>

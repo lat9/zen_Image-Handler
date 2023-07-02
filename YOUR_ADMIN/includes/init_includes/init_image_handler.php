@@ -7,13 +7,13 @@ if (!defined('IS_ADMIN_FLAG')) {
     die('Illegal Access');
 }
 
-define('IH_CURRENT_VERSION', '5.3.3');
+define('IH_CURRENT_VERSION', '5.3.4');
 
 // -----
 // Wait until an admin is logged in before seeing if any initialization steps need to be performed.
 // That ensures that "someone" will see the plugin's installation/update messages!
 //
-if (isset($_SESSION['admin_id'])) {
+if (isset($_SESSION['admin_id']) && (!defined('IH_RESIZE') || !defined('IH_VERSION') || IH_VERSION !== IH_CURRENT_VERSION)) {
     // -----
     // Determine the configuration group associated with "Images"; if not found, use the standard
     // configuration group ID of 4.
