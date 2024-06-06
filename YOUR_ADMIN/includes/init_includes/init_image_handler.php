@@ -1,13 +1,13 @@
 <?php 
 // -----
 // Part of the "Image Handler" plugin, v5.0.0 and later, by Cindy Merkin a.k.a. lat9 (https://vinosdefrutastropicales.com)
-// Copyright (c) 2017-2023 Vinos de Frutas Tropicales
+// Copyright (c) 2017-2024 Vinos de Frutas Tropicales
 //
 if (!defined('IS_ADMIN_FLAG')) {
     die('Illegal Access');
 }
 
-define('IH_CURRENT_VERSION', '5.3.4');
+define('IH_CURRENT_VERSION', '5.3.5-beta1');
 
 // -----
 // Wait until an admin is logged in before seeing if any initialization steps need to be performed.
@@ -283,7 +283,7 @@ if (isset($_SESSION['admin_id']) && (!defined('IH_RESIZE') || !defined('IH_VERSI
         // v5.1.9
         // - GitHub#72: Add mirrored to IH_CACHE_NAMING to mirror the base directory structure
         //
-         if (version_compare(IH_VERSION, '5.1.9', '<')) {
+        if (version_compare(IH_VERSION, '5.1.9', '<')) {
             $db->Execute(
                 "UPDATE " . TABLE_CONFIGURATION . "
                      SET configuration_description = '<br>Choose the method that <em>Image Handler</em> uses to name the resized images in the <code>bmz_cache</code> directory.<br><br><em>Hashed</em>: Uses an &quot;MD5&quot; hash to produce the filenames.  It can be &quot;difficult&quot; to visually identify the original file using this method.<br><br><em>Readable</em>: This is a good choice for new installations of <em>IH</em> or for upgraded installations that do not have hard-coded image links.<br><br><em>Mirrored</em>: Similar to <em>Readable</em>, but the directory structure under <code>bmz_cache</code> mirrors the original images\' sub-directory structure.',
@@ -296,7 +296,7 @@ if (isset($_SESSION['admin_id']) && (!defined('IH_RESIZE') || !defined('IH_VERSI
         // v5.2.0
         // - GitHub#139: Removing small-image zoom feature
         //
-         if (version_compare(IH_VERSION, '5.2.0', '<')) {
+        if (version_compare(IH_VERSION, '5.2.0', '<')) {
             $db->Execute(
                 "DELETE FROM " . TABLE_CONFIGURATION . "
                   WHERE configuration_key IN ('ZOOM_SMALL_IMAGES', 'ZOOM_IMAGE_SIZE')"
@@ -307,8 +307,8 @@ if (isset($_SESSION['admin_id']) && (!defined('IH_RESIZE') || !defined('IH_VERSI
         // v5.3.2
         // -GitHub#272: Add webp image processing
         //
-         if (version_compare(IH_VERSION, '5.3.2', '<')) {
-              $db->Execute(
+        if (version_compare(IH_VERSION, '5.3.2', '<')) {
+            $db->Execute(
                 "UPDATE " . TABLE_CONFIGURATION . "
                     SET configuration_description = 'Select one of -jpg-, -gif-, -png- or -webp-. Note that -png- is a <b>much better</b> format for transparency. Use -jpg- or -png- for larger images. -no_change- is old zen-cart behavior, use the same file extension for large images as uploaded images.',
                         set_function = 'zen_cfg_select_option([\'gif\',\'jpg\',\'png\',\'webp\',\'no_change\'],'

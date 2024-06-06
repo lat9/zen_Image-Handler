@@ -1,6 +1,6 @@
 <?php
 /**
- * mod Image Handler 5.3.0
+ * mod Image Handler 5.3.5
  * ih_manager.php
  * manager module for IH5 admin interface
  *
@@ -30,7 +30,9 @@ if ($action === 'new_cat') {
 if ($products_filter == '' && $current_category_id > 0) {
     $new_product_query = $db->Execute(
         "SELECT ptc.products_id FROM " . TABLE_PRODUCTS_TO_CATEGORIES . " ptc
-            LEFT JOIN " . TABLE_PRODUCTS_DESCRIPTION . " pd
+            INNER JOIN " . TABLE_PRODUCTS . " p
+                ON p.products_id = ptc.products_id
+            INNER JOIN " . TABLE_PRODUCTS_DESCRIPTION . " pd
                 ON ptc.products_id = pd.products_id
                AND pd.language_id = " . (int)$_SESSION['languages_id'] . "
           WHERE ptc.categories_id = " . (int)$current_category_id . "
@@ -46,7 +48,9 @@ if ($products_filter == '' && $current_category_id > 0) {
         $current_category_id = $reset_categories_id[0]['id'];
         $new_product_query = $db->Execute(
             "SELECT ptc.products_id FROM " . TABLE_PRODUCTS_TO_CATEGORIES . " ptc
-                LEFT JOIN " . TABLE_PRODUCTS_DESCRIPTION . " pd
+                INNER JOIN " . TABLE_PRODUCTS . " p
+                    ON p.products_id = ptc.products_id
+                INNER JOIN " . TABLE_PRODUCTS_DESCRIPTION . " pd
                     ON ptc.products_id = pd.products_id
                    AND pd.language_id = " . (int)$_SESSION['languages_id'] . "
               WHERE ptc.categories_id = " . (int)$current_category_id . "
