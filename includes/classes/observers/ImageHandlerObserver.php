@@ -1,9 +1,9 @@
 <?php
 // -----
 // Part of the "Image Handler" plugin for Zen Cart 1.5.7 and later.
-// Copyright (c) 2017-2022 Vinos de Frutas Tropicales
+// Copyright (c) 2017-2025 Vinos de Frutas Tropicales
 //
-// Last updated: IH 5.3.1
+// Last updated: IH 5.3.6
 //
 if (!defined('IS_ADMIN_FLAG')) {
     die('Illegal Access');
@@ -13,7 +13,7 @@ class ImageHandlerObserver extends base
 {
     public function __construct()
     {
-        if (defined('IH_RESIZE') && IH_RESIZE == 'yes') {
+        if (defined('IH_RESIZE') && IH_RESIZE === 'yes') {
             $this->attach(
                 $this,
                 [
@@ -35,7 +35,7 @@ class ImageHandlerObserver extends base
     {
         // -----
         // Note: For each of these notifications, an additional check (via ih_image_supported) is made to see
-        // that the image currently being processed is supported by Image Handler.  If not, e.g. a .webp extension,
+        // that the image currently being processed is supported by Image Handler.  If not
         // each notification's processing results in a quick return.
         //
         switch ($eventID) {
@@ -54,11 +54,11 @@ class ImageHandlerObserver extends base
             // other values have been updated for separate handling.
             //
             case 'NOTIFY_MODULES_MAIN_PRODUCT_IMAGE_FILENAME':
-                $products_image = $p1;
+                $products_image = (string)$p1;
                 if (ih_image_supported($products_image) === false) {
                     return;
                 }
-                $products_image_extension = $p3;
+                $products_image_extension = (string)$p3;
                 $p4 = $products_image_base = preg_replace('/' . $products_image_extension . '$/', '', $products_image);
                 $p5 = DIR_WS_IMAGES . 'medium/' . $products_image_base . IMAGE_SUFFIX_MEDIUM . $products_image_extension;
                 $p6  = DIR_WS_IMAGES . 'large/' . $products_image_base . IMAGE_SUFFIX_LARGE .  $products_image_extension;
@@ -73,8 +73,8 @@ class ImageHandlerObserver extends base
             // $p2 ... (r/w) ... The (possibly updated) filename (including path) of the current additional image.
             //
             case 'NOTIFY_MODULES_ADDITIONAL_IMAGES_GET_LARGE':
-                $products_name = $p1;
-                $products_image_large = $p2;
+                $products_name = (string)$p1;
+                $products_image_large = (string)$p2;
                 if (ih_image_supported($products_image_large) === false) {
                     return;
                 }
@@ -94,7 +94,7 @@ class ImageHandlerObserver extends base
             //                
             case 'NOTIFY_MODULES_ADDITIONAL_IMAGES_THUMB_SLASHES':
                 //  remove additional single quotes from image attributes (important!)
-                $thumb_slashes = $p2;
+                $thumb_slashes = (string)$p2;
                 if (ih_image_supported($thumb_slashes) === false) {
                     return;
                 }
@@ -111,7 +111,7 @@ class ImageHandlerObserver extends base
                        $products_image_medium,
                        $products_image_large;
 
-                if (ih_image_supported($products_image) === false) {
+                if (ih_image_supported((string)$products_image) === false) {
                     return;
                 }
                 $products_image_base = preg_replace('/' . $products_image_extension . '$/', '', $products_image);
