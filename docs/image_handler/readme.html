@@ -333,13 +333,19 @@ define('SITEMAPXML_PRODUCTS_IMAGES_FUNCTION', '<b class="red">true</b>'); // tru
             <li>CHANGE: Remove deprecated (in PHP 8.5+) calls to <code>imagedestroy</code>.</li>
             <li>CHANGE: Remove Fual-Slimbox and Colorbox integration; now required separate installation.</li>
             <li>CHANGE: Drop support for Zen Cart versions prior to 1.5.8 (language files renamed) and PHP versions less than 8.0.</li>
+            <li>CHANGE: Add type-hints to functions and class properties/methods.</li>
             <li>The following files were changed, <span class="added">added</span> or <span class="removed">removed</span>:<ol>
                 <li><span class="removed">/includes/auto_loaders/config.colorbox.php</span></li>
                 <li><span class="removed">/includes/auto_loaders/config.fual_slimbox.php</span></li>
                 <li>/includes/classes/bmz_image_handler_class.php</li>
                 <li><span class="removed">/includes/classes/observers/ColorBoxObserver.php</span></li>
                 <li><span class="removed">/includes/classes/observers/FualSlimboxObserver.php</span></li>
+                <li>/includes/classes/observers/ImageHandlerObserver.php</li>
+                <li>/includes/functions/extra_functions/functions_bmz_image_handler.php</li>
+                <li>/includes/functions/extra_functions/functions_bmz_io.php</li>
                 <li>/YOUR_ADMIN/image_handler.php</li>
+                <li>/YOUR_ADMIN/includes/classes/observers/ImageHandlerAdmin.php</li>
+                <li>/YOUR_ADMIN/includes/functions/extra_functions/functions_bmz_io.php</li>
                 <li>/YOUR_ADMIN/includes/init_includes/init_image_handler.php</li>
                 <li><span class="added">/YOUR_ADMIN/includes/languages/english/ih_about.php</span></li>
                 <li><span class="removed">/YOUR_ADMIN/includes/languages/english/image_handler.php</span></li>

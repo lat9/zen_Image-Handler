@@ -1,6 +1,6 @@
 <?php
 /**
- * mod Image Handler 5.3.2
+ * mod Image Handler 5.4.0
  * functions_bmz_image_handler.php
  * html_output hook function and additional image referencing functions for
  * backwards compatibility, parsing of configuration settings
@@ -75,7 +75,7 @@ $ihConf['large']['bg'] = ihValidateBackground('large');
  *
  * @return mixed|string
  */
-function ihValidateBackground($which_background)
+function ihValidateBackground(string $which_background): string
 {
     $background_value = $GLOBALS['ihConf'][$which_background]['bg'];
 
@@ -108,7 +108,7 @@ function ihValidateBackground($which_background)
  *
  * @return bool
  */
-function ih_image_supported($src)
+function ih_image_supported(string $src): bool
 {
     return in_array(strtolower(pathinfo($src, PATHINFO_EXTENSION)), ['jpg', 'jpeg', 'gif', 'png', 'webp']);
 }
@@ -125,7 +125,7 @@ function ih_image_supported($src)
  *
  * @return array
  */
-function handle_image($src, $alt, $width, $height, $parameters)
+function handle_image($src, $alt, $width, $height, $parameters): array
 {
     global $ihConf;
 
@@ -190,7 +190,7 @@ function zen_get_small_image($image)
  *
  * @return string
  */
-function zen_get_medium_image($image_base, $image_extension)
+function zen_get_medium_image(string $image_base, string $image_extension): string
 {
     global $ihConf;
     return $ihConf['medium']['prefix'] . $image_base . $ihConf['medium']['suffix'] . $image_extension;
@@ -202,7 +202,7 @@ function zen_get_medium_image($image_base, $image_extension)
  *
  * @return string
  */
-function zen_get_large_image($image_base, $image_extension)
+function zen_get_large_image(string $image_base, string $image_extension): string
 {
     global $ihConf;
     return $ihConf['large']['prefix'] . $image_base . $ihConf['large']['suffix'] . $image_extension;

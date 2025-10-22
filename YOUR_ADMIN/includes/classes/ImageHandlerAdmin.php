@@ -1,9 +1,9 @@
 <?php
 // -----
 // Part of the "Image Handler" plugin, v5.0.0 and later, by Cindy Merkin a.k.a. lat9 (cindy@vinosdefrutastropicales.com)
-// Copyright (c) 2017-2022 Vinos de Frutas Tropicales
+// Copyright (c) 2017-2025 Vinos de Frutas Tropicales
 //
-// Last updated: IH v5.3.2
+// Last updated: IH v5.4.0
 // brittainmark 2023-02-06 allow webp image filss
 //
 if (!defined('IH_DEBUG_ADMIN')) {
@@ -11,11 +11,10 @@ if (!defined('IH_DEBUG_ADMIN')) {
 }
 class ImageHandlerAdmin
 {
-    public
-        $debug,
-        $debugLogfile,
-        $validFiletypes,
-        $validFileExtensions;
+    public bool $debug;
+    public string $debugLogfile;
+    public array $validFiletypes;
+    public array $validFileExtensions;
 
     public function __construct()
     {
@@ -25,7 +24,7 @@ class ImageHandlerAdmin
         $this->validFileExtensions = ['.gif', '.jpg', '.jpeg', '.png', '.webp'];
     }
 
-    public function getImageDetailsString($filename)
+    public function getImageDetailsString(string $filename): string
     {
         if (!file_exists($filename)) {
             return 'no info';
@@ -56,7 +55,7 @@ class ImageHandlerAdmin
     // The function returns a simple, sorted array containing the matching filenames (without the
     // directory information).
     //
-    public function findAdditionalImages(&$array, $directory, $base)
+    public function findAdditionalImages(&$array, string $directory, string $base): int
     {
         // -----
         // Set up the to-be-matched image name, depending on whether the search is being
@@ -108,27 +107,27 @@ class ImageHandlerAdmin
         return ($error === true) ? 0 : 1;
     }
 
-    public function validatePositiveInteger($value)
+    public function validatePositiveInteger($value): bool
     {
         return (((int)$value) != $value || $value <= 0);
     }
 
-    public function validateQuality($value)
+    public function validateQuality($value): bool
     {
         return (((int)$value) != $value || $value < 0 || $value > 85);
     }
 
-    public function validateBackground($value)
+    public function validateBackground(string $value): bool
     {
         $entry_error = false;
         $background = trim(str_replace('transparent', '', $value));
         $rgb_values = preg_split('/[, :]/', $background);
 
-        if (!is_array($rgb_values) || count($rgb_values) != 3) {
+        if (!is_array($rgb_values) || count($rgb_values) !== 3) {
             $entry_error = true;
         } else {
             foreach ($rgb_values as $rgb_value) {
-                if (preg_match('/^[0-9]{1,3}$/', $rgb_value) == 0 || $rgb_value > 255) {
+                if (preg_match('/^[0-9]{1,3}$/', $rgb_value) === 0 || $rgb_value > 255) {
                     $entry_error = true;
                 }
             }
@@ -136,27 +135,27 @@ class ImageHandlerAdmin
         return $entry_error;
     }
 
-    public function validateFiletype($value)
+    public function validateFiletype(string $value): bool
     {
-        return !in_array($value, $this->validFiletypes);
+        return !in_array(strtolower($value), $this->validFiletypes, true);
     }
 
-    public function validateBoolean($value)
+    public function validateBoolean($value): bool
     {
         return !($value === true || $value === false);
     }
 
-    public function validateFileExtension($value)
+    public function validateFileExtension(string $value): bool
     {
-        return in_array(strtolower($value), $this->validFileExtensions);
+        return in_array(strtolower($value), $this->validFileExtensions, true);
     }
 
-    public function getSupportedFileExtensions()
+    public function getSupportedFileExtensions(): string
     {
         return implode(', ', $this->validFileExtensions);
     }
 
-    public function imageHandlerHrefLink($image_name, $products_filter, $action = '', $more = '')
+    public function imageHandlerHrefLink(string $image_name, $products_filter, string $action = '', string $more = ''): string
     {
         $imgName = ($image_name === '') ? '' : "&amp;imgName=$image_name";
         $action = ($action === '') ? '' : "&amp;action=$action";
@@ -164,7 +163,8 @@ class ImageHandlerAdmin
         return zen_href_link(FILENAME_IMAGE_HANDLER, "products_filter=$products_filter$action$imgName$more");
     }
 
-    public function debugLog($message) {
+    public function debugLog(string $message): void
+    {
         if ($this->debug) {
             error_log(PHP_EOL . date('Y-m-d H:i:s: ') . $message . PHP_EOL, 3, $this->debugLogfile);
         }

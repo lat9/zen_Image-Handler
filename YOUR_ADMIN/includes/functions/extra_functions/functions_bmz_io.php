@@ -1,6 +1,6 @@
 <?php
 /**
- * mod Image Handler
+ * mod Image Handler, v5.4.0
  * functions_bmz_io.php
  * admin filesystem functions for image handler
  *
@@ -17,40 +17,37 @@ if (!defined('IS_ADMIN_FLAG') || IS_ADMIN_FLAG !== true) {
 
 require DIR_FS_CATALOG . DIR_WS_FUNCTIONS . 'extra_functions/functions_bmz_io.php';
 
-function bmz_clear_cache() 
+function bmz_clear_cache(): bool
 {
-	global $bmzConf;
-	return remove_dir($bmzConf['cachedir']);
+    global $bmzConf;
+    return remove_dir($bmzConf['cachedir']);
 }
 
-function remove_dir($dirname) 
+function remove_dir(string $dirname): bool
 {
     global $messageStack;
     $error = false;
     if ($dir = @dir($dirname)) {
         $dir->rewind();
         while (false !== ($file = $dir->read())) {
-            //echo $dirname . '/' . $file . '<br />';
-            if (($file != ".") && ($file != "..") && ($file != ".htaccess") && ($file != ".keep")) {
+            if (!in_array($file, ['.', '..', '.htaccess', '.keep'], true)) {
                 if (is_dir($dirname . '/' . $file)) {
                     // another directory, recurse
-                    $error |= remove_dir($dirname . '/' . $file);
+                    $error = remove_dir($dirname . '/' . $file);
                     // if it was a directory, it should be empty now
                     if (!@rmdir($dirname . '/' . $file)) {
-                        $error |= true;
+                        $error = true;
                         $messageStack->add('Couldn\'t delete ' . $dirname . '/' . $file . '.', 'error');
                     }
                 } else {
                     if (!@unlink($dirname . '/' . $file)) {
-                        $error |= true;
+                        $error = true;
                         $messageStack->add('Couldn\'t delete ' . $dirname . '/' . $file . '.', 'error');
                     }
                 }
             }
         }
         $dir->close();
-    } else {
-        $error |= true;
     }
     return $error;
 }

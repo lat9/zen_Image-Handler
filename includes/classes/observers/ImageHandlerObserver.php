@@ -3,7 +3,7 @@
 // Part of the "Image Handler" plugin for Zen Cart 1.5.7 and later.
 // Copyright (c) 2017-2025 Vinos de Frutas Tropicales
 //
-// Last updated: IH 5.3.6
+// Last updated: IH 5.4.0
 //
 if (!defined('IS_ADMIN_FLAG')) {
     die('Illegal Access');
@@ -61,7 +61,7 @@ class ImageHandlerObserver extends base
                 $products_image_extension = (string)$p3;
                 $p4 = $products_image_base = preg_replace('/' . $products_image_extension . '$/', '', $products_image);
                 $p5 = DIR_WS_IMAGES . 'medium/' . $products_image_base . IMAGE_SUFFIX_MEDIUM . $products_image_extension;
-                $p6  = DIR_WS_IMAGES . 'large/' . $products_image_base . IMAGE_SUFFIX_LARGE .  $products_image_extension;
+                $p6 = DIR_WS_IMAGES . 'large/' . $products_image_base . IMAGE_SUFFIX_LARGE .  $products_image_extension;
 
                 $p2 = true;  //-Indicate that the image has been "handled".
                 break;
@@ -80,7 +80,7 @@ class ImageHandlerObserver extends base
                 }
                 if (function_exists('handle_image')) {
                     $newimg = handle_image($products_image_large, addslashes($products_name), LARGE_IMAGE_MAX_WIDTH, LARGE_IMAGE_MAX_HEIGHT, '');
-                    list($src, $alt, $width, $height, $parameters) = $newimg;
+                    [$src, $alt, $width, $height, $parameters] = $newimg;
                     $p2 = zen_output_string($src);
                 } 
                 break;
@@ -106,7 +106,7 @@ class ImageHandlerObserver extends base
             //
             case 'NOTIFY_HEADER_END_POPUP_IMAGES':
                 global $products_image,
-                       $products_image_extension, 
+                       $products_image_extension,
                        $products_image_base,
                        $products_image_medium,
                        $products_image_large;
