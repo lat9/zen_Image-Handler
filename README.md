@@ -31,6 +31,6 @@ IH<sup>5</sup> works _with_ default Zen Cart functionality, it does not replace 
 
 Additional information is available by clicking the following links:
 
-### [Configuration](pages/configuration.md)
-### [Admin: Image Handler](pages/image_handler.md)
-### [Troubleshooting](pages/troubleshooting.md)
+### [Configuration](https://github.com/lat9/zen_Image-Handler/wiki/Configuration)
+### [Admin: Image Handler](https://github.com/lat9/zen_Image-Handler/wiki/Using-the-Admin-%22Image-Handler%22-Tool)
+### [Troubleshooting](https://github.com/lat9/zen_Image-Handler/wiki/Troubleshooting)
