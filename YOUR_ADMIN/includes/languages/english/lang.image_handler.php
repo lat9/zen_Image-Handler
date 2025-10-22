@@ -11,7 +11,7 @@
  * Last modified by webchills and cjones 2012-03-10 17:46:50
  * Last modified by lat9 2022-11-16, IH v5.3.1
  */
-return [
+$define = [
     'IH_VERSION_VERSION' => 'Version',
     'IH_VERSION_NOT_FOUND' => 'No Image Handler information found.',
     'IH_REMOVE' => 'Uninstall Image Handler.  (Please backup your site and database first)',
@@ -79,7 +79,6 @@ return [
     'TEXT_INFO_SELECT_ACTION' => 'Select action',
 
     'TEXT_NOT_NEEDED' => 'Not needed',    //-Displayed for the 'Medium'-sized additional images
-    'TEXT_TABLE_CAPTION_INSTRUCTIONS' => "<b>Note:</b> A product's additional images are <em>automatically</em> created in their 'small' and 'large' sizes <em>only</em> and show '" . TEXT_NOT_NEEDED . "' for their <b>Medium image</b>.  If your storefront uses other image-sizes for these (or the product's main) images, those images are created (and cached) 'on-demand'.",
 
     'TEXT_MSG_FILE_NOT_FOUND' => 'This file does not exist.',
     'TEXT_MSG_ERROR_RETRIEVING_IMAGESIZE' => 'Could not determine the image size',
@@ -150,3 +149,7 @@ return [
         'IH_RESIZE_ENABLE' => 'enable',
     'IH_BUTTON_RESIZE_TOGGLE' => 'Toggle Setting',
 ];
+
+$define['TEXT_TABLE_CAPTION_INSTRUCTIONS'] = "<b>Note:</b> A product's additional images are <em>automatically</em> created in their 'small' and 'large' sizes <em>only</em> and show '" . $define['TEXT_NOT_NEEDED'] . "' for their <b>Medium image</b>.  If your storefront uses other image-sizes for these (or the product's main) images, those images are created (and cached) 'on-demand'.";
+    
+return $define;
