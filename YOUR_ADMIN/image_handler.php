@@ -835,13 +835,13 @@ if ($ih_page === 'admin') {
  * ABOUT TABPAGE
  */
 } else {
-    if (file_exists(DIR_WS_LANGUAGES . $_SESSION['language'] . '/image_handler_about.php')) {
-        include DIR_WS_LANGUAGES . $_SESSION['language'] . '/image_handler_about.php';
-    } elseif (file_exists(DIR_WS_LANGUAGES . 'english/image_handler_about.php')) {
-        include DIR_WS_LANGUAGES . 'english/image_handler_about.php';
+    if (file_exists(DIR_WS_LANGUAGES . $_SESSION['language'] . '/ih_about.php')) {
+        include DIR_WS_LANGUAGES . $_SESSION['language'] . '/ih_about.php';
+    } elseif (file_exists(DIR_WS_LANGUAGES . 'english/ih_about.php')) {
+        include DIR_WS_LANGUAGES . 'english/ih_about.php';
     } else {
 ?>
-        <div style="font-size: x-large;"><b>Missing <?php echo DIR_WS_LANGUAGES . $_SESSION['language'] . '/image_handler_about.php'; ?>!</b></div>
+        <div style="font-size: x-large;"><b>Missing <?php echo DIR_WS_LANGUAGES . $_SESSION['language'] . '/ih_about.php'; ?>!</b></div>
 <?php
     }
 }

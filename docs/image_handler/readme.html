@@ -298,20 +298,20 @@ define('SITEMAPXML_PRODUCTS_IMAGES_FUNCTION', '<b class="red">true</b>'); // tru
             <td>&nbsp;</td>
         </tr>
         <tr>
-            <td>/YOUR_ADMIN/includes/languages/english/image_handler.php</td>
-            <td>Added in v5.0.0.</td>
+            <td>/YOUR_ADMIN/includes/languages/english/lang.image_handler.php</td>
+            <td>Added in v5.0.0; renamed in v5.4.0.</td>
         </tr>
         <tr>
-            <td>/YOUR_ADMIN/includes/languages/english/image_handler_about.php</td>
-            <td>Added in v5.0.1.</td>
+            <td>/YOUR_ADMIN/includes/languages/english/ih_about.php</td>
+            <td>Added in v5.0.1; renamed in v5.4.0.</td>
         </tr>
         <tr>
-            <td>/YOUR_ADMIN/includes/languages/english/image_handler_uninstall.php</td>
-            <td>Added in v5.0.0.</td>
+            <td>/YOUR_ADMIN/includes/languages/english/lang.image_handler_uninstall.php</td>
+            <td>Added in v5.0.0; renamed in v5.4.0.</td>
         </tr>
         <tr>
-            <td>/YOUR_ADMIN/includes/languages/english/image_handler_view_config.php</td>
-            <td>Added in v5.0.1.</td>
+            <td>/YOUR_ADMIN/includes/languages/english/lang.image_handler_view_config.php</td>
+            <td>Added in v5.0.1; renamed in v5.4.0.</td>
         </tr>
         <tr>
             <td>/YOUR_ADMIN/includes/languages/english/extra_definitions/bmz_image_handler.php</td>
@@ -322,8 +322,8 @@ define('SITEMAPXML_PRODUCTS_IMAGES_FUNCTION', '<b class="red">true</b>'); // tru
             <td>Comments only for v5.0.0; definitions moved to image_handler_extra_definitions.php.</td>
         </tr>
         <tr>
-            <td>/YOUR_ADMIN/includes/languages/english/extra_definitions/image_handler_extra_definitions.php</td>
-            <td>Added in v5.0.0.</td>
+            <td>/YOUR_ADMIN/includes/languages/english/extra_definitions/lang.image_handler_extra_definitions.php</td>
+            <td>Added in v5.0.0; renamed in v5.4.0.</td>
         </tr>
     </table>
 
@@ -332,13 +332,25 @@ define('SITEMAPXML_PRODUCTS_IMAGES_FUNCTION', '<b class="red">true</b>'); // tru
         <li>v5.4.0-beta1, 2025-10-22:<ul>
             <li>CHANGE: Remove deprecated (in PHP 8.5+) calls to <code>imagedestroy</code>.</li>
             <li>CHANGE: Remove Fual-Slimbox and Colorbox integration; now required separate installation.</li>
-            <li>The following files were changed or <span class="removed">removed</span>:<ol>
+            <li>CHANGE: Drop support for Zen Cart versions prior to 1.5.8 (language files renamed) and PHP versions less than 8.0.</li>
+            <li>The following files were changed, <span class="added">added</span> or <span class="removed">removed</span>:<ol>
                 <li><span class="removed">/includes/auto_loaders/config.colorbox.php</span></li>
                 <li><span class="removed">/includes/auto_loaders/config.fual_slimbox.php</span></li>
                 <li>/includes/classes/bmz_image_handler_class.php</li>
                 <li><span class="removed">/includes/classes/observers/ColorBoxObserver.php</span></li>
                 <li><span class="removed">/includes/classes/observers/FualSlimboxObserver.php</span></li>
+                <li>/YOUR_ADMIN/image_handler.php</li>
                 <li>/YOUR_ADMIN/includes/init_includes/init_image_handler.php</li>
+                <li><span class="added">/YOUR_ADMIN/includes/languages/english/ih_about.php</span></li>
+                <li><span class="removed">/YOUR_ADMIN/includes/languages/english/image_handler.php</span></li>
+                <li><span class="removed">/YOUR_ADMIN/includes/languages/english/image_handler_about.php</span></li>
+                <li><span class="removed">/YOUR_ADMIN/includes/languages/english/image_handler_uninstall.php</span></li>
+                <li><span class="removed">/YOUR_ADMIN/includes/languages/english/image_handler_view_config.php</span></li>
+                <li><span class="added">/YOUR_ADMIN/includes/languages/english/lang.image_handler.php</span></li>
+                <li><span class="added">/YOUR_ADMIN/includes/languages/english/lang.image_handler_uninstall.php</span></li>
+                <li><span class="added">/YOUR_ADMIN/includes/languages/english/lang.image_handler_view_config.php</span></li>
+                <li><span class="removed">/YOUR_ADMIN/includes/languages/english/extra_definitions/image_handler_extra_definitions.php</span></li>
+                <li><span class="added">/YOUR_ADMIN/includes/languages/english/extra_definitions/lang.image_handler_extra_definitions.php</span></li>
             </ol></li>
         </ul></li>
         <li>v5.3.6, 2025-06-26:<ul>
