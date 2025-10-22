@@ -119,50 +119,6 @@ define('SITEMAPXML_PRODUCTS_IMAGES_FUNCTION', '<b class="red">true</b>'); // tru
     </fieldset>
 
     <fieldset>
-        <legend><a href="https://www.zen-cart.com/downloads.php?do=file&id=584" target="_blank">Fual Slimbox</a> or <a href="https://www.zen-cart.com/downloads.php?do=file&id=1322" target="_blank">ColorBox for Zen Cart</a> with Image Handler<sup>5</sup></legend>
-        <p>Both of these plugins provide a large-image popup using jQuery methods and are pre-integrated with <em>IH<sup>5</sup></em>.  <em>IH<sup>5</sup></em> was validated using <em>Fual Slimbox</em> v2.0.1a and <em>ColorBox for Zen Cart</em> v2.1.1 on Zen Cart 1.5.5e.</p>
-
-        <p>When your store is using <em>IH<sup>5</sup></em> along with one of these plugins, the order in which the plugin and <em>IH<sup>5</sup></em> are installed is important:</p>
-        <table class="misc-table">
-            <tr>
-                <th>If your store &hellip;</th>
-                <th>&hellip; then &hellip;</th>
-            </tr>
-            <tr>
-                <td>&hellip; has an <em>existing</em> installation of either large-image popup plugin &hellip;</td>
-                <td>Install <em>IH<sup>5</sup></em> as if you had a &quot;fresh&quot; Zen Cart installation, overwriting (or creating) the two template-override files required by <em>IH<sup>5</sup></em>.</td>
-            </tr>
-            <tr>
-                <td>&hellip; has an <em>existing</em> installation of <em>IH<sup>5</sup></em> and you are now going to install one of the large-image popup plugins &hellip;</td>
-                <td>Install the large-image popup as instructed <b>but do not overwrite the two template-override files in the /includes/modules sub-directory</b>.  The base zc156b+ installation already includes modules that enable that large-image popup to do its thing.</td>
-            </tr>
-            <tr>
-                <td>&hellip; has neither <em>IH<sup>5</sup></em> nor an <em>existing</em> large-image popup plugin &hellip;</td>
-                <td>Install <em>IH<sup>5</sup></em>, copying all its distributed files, then proceed to install the large-image popup plugin as described above.</td>
-            </tr>
-        </table>
-
-        <p><em>IH<sup>5</sup></em>'s distribution contains the following files that provide its interoperability with these two large-image popup plugins.  If your store uses a different popup plugin, you'll need to review the code associated with one of the plugin integrations provided.</p>
-        <table class="misc-table">
-            <tr>
-                <th>Plugin Name</th>
-                <th>/includes/auto_loaders File</th>
-                <th>/includes/classes/observers File</th>
-            </tr>
-            <tr>
-                <td><b>Fual Slimbox</b></td>
-                <td>config.fual_slimbox.php</td>
-                <td>FualSlimboxObserver.php</td>
-            </tr>
-            <tr>
-                <td><b>ColorBox</b></td>
-                <td>config.colorbox.php</td>
-                <td>ColorBoxObserver.php</td>
-            </tr>
-        </table>
-    </fieldset>
-
-    <fieldset>
         <legend>Installation/Upgrade Instructions</legend>
         <ol>    
             <li>BACK UP your database &amp; store.</li>
@@ -191,13 +147,7 @@ define('SITEMAPXML_PRODUCTS_IMAGES_FUNCTION', '<b class="red">true</b>'); // tru
         <li>Click the &quot;Admin Tools&quot; link at the top of the page.</li>
         <li>Click the &quot;Uninstall Image Handler&quot; link at the top of the page.</li>
         <li>You'll be presented an <em>Uninstall Image Handler</em> page.  To continue with the uninstall, click the &quot;Go&quot; button; to cancel, click the &quot;Cancel&quot; button.</li>
-        <li>You'll be presented a confirmation page.  Click &quot;Go&quot; one more time and the uninstall script will remove all files (except for the list below) in the <em>IH<sup>5</sup></em> distribution as well as the changes it makes to the database.</li>
-        </ul>The following files remain after <em>IH<sup>5</sup></em> is uninstalled:<ol type="a">
-            <li>/includes/auto_loaders/config.colorbox.php <span class="smaller">(remains <em>only if</em> ColorBox is installed)</span></li>
-            <li>/includes/auto_loaders/config.fual_slimbox.php <span class="smaller">(remains <em>only if</em> Fual Slimbox is installed)</span></li>
-            <li>/includes/classes/observers/ColorBoxObserver.php <span class="smaller">(remains <em>only if</em> ColorBox is installed)</span></li>
-            <li>/includes/classes/observers/FualSlimboxObserver.php <span class="smaller">(remains <em>only if</em> Fual Slimbox is installed)</span></li>
-        </ol></li>
+        <li>You'll be presented a confirmation page.  Click &quot;Go&quot; one more time and the uninstall script will remove all files in the <em>IH<sup>5</sup></em> distribution as well as the changes it makes to the database.</li>
     </ol>
 
     <h2>File List</h2>
@@ -224,19 +174,19 @@ define('SITEMAPXML_PRODUCTS_IMAGES_FUNCTION', '<b class="red">true</b>'); // tru
             <td>&nbsp;</td>
         </tr>
         <tr>
-            <td>/includes/auto_loaders/config.colorbox.php</td>
-            <td>Added in v5.0.0.</td>
+            <td class="removed">/includes/auto_loaders/config.colorbox.php</td>
+            <td>Removed in v5.4.0.</td>
         </tr>
         <tr>
-            <td>/includes/auto_loaders/config.fual_slimbox.php</td>
-            <td>Added in v5.0.0.</td>
+            <td class="removed">/includes/auto_loaders/config.fual_slimbox.php</td>
+            <td>Removed in v5.4.0.</td>
         </tr>
         <tr>
             <td>/includes/auto_loaders/config.image_handler.php</td>
             <td>Added in v5.0.0.</td>
         </tr>
         <tr>
-            <td><span class="removed">/includes/classes/bmz_gif_info.class.php</span></td>
+            <td class="removed">/includes/classes/bmz_gif_info.class.php</td>
             <td>Unused, removed in v5.2.0.</td>
         </tr>
         <tr>
@@ -244,12 +194,12 @@ define('SITEMAPXML_PRODUCTS_IMAGES_FUNCTION', '<b class="red">true</b>'); // tru
             <td>&nbsp;</td>
         </tr>
         <tr>
-            <td>/includes/classes/observers/ColorBoxObserver.php</td>
-            <td>&nbsp;Added in v5.0.0.</td>
+            <td class="removed">/includes/classes/observers/ColorBoxObserver.php</td>
+            <td>Removed in v5.4.0.</td>
         </tr>
         <tr>
-            <td>/includes/classes/observers/FualSlimboxObserver.php</td>
-            <td>Added in v5.0.0.</td>
+            <td class="removed">/includes/classes/observers/FualSlimboxObserver.php</td>
+            <td>Removed in v5.4.0.</td>
         </tr>
         <tr>
             <td>/includes/classes/observers/ImageHandlerObserver.php</td>
@@ -276,19 +226,19 @@ define('SITEMAPXML_PRODUCTS_IMAGES_FUNCTION', '<b class="red">true</b>'); // tru
             <td>&nbsp;</td>
         </tr>
         <tr>
-            <td><span class="template removed">/includes/modules/YOUR_TEMPLATE/additional_images.php</span></td>
+            <td class="template removed">/includes/modules/YOUR_TEMPLATE/additional_images.php</td>
             <td>No longer distributed, as of v5.2.0.</td>
         </tr>
         <tr>
-            <td><span class="template removed">/includes/modules/YOUR_TEMPLATE/main_product_image.php</span></td>
+            <td class="template removed">/includes/modules/YOUR_TEMPLATE/main_product_image.php</td>
             <td>No longer distributed, as of v5.2.0.</td>
         </tr>
         <tr>
-            <td><span class="removed">/includes/templates/YOUR_TEMPLATE/css/style_imagehover.css</span></td>
+            <td class="removed">/includes/templates/YOUR_TEMPLATE/css/style_imagehover.css</td>
             <td>Removed in v5.2.0.</td>
         </tr>
         <tr>
-            <td><span class="removed">/includes/templates/YOUR_TEMPLATE/jscript/jscript_imagehover.js</span></td>
+            <td class="removed">/includes/templates/YOUR_TEMPLATE/jscript/jscript_imagehover.js</td>
             <td>Removed in v5.2.0.</td>
         </tr>
         <tr>
@@ -381,8 +331,13 @@ define('SITEMAPXML_PRODUCTS_IMAGES_FUNCTION', '<b class="red">true</b>'); // tru
     <ul>
         <li>v5.4.0-beta1, 2025-10-22:<ul>
             <li>CHANGE: Remove deprecated (in PHP 8.5+) calls to <code>imagedestroy</code>.</li>
-            <li>The following files were changed:<ol>
+            <li>CHANGE: Remove Fual-Slimbox and Colorbox integration; now required separate installation.</li>
+            <li>The following files were changed or <span class="removed">removed</span>:<ol>
+                <li><span class="removed">/includes/auto_loaders/config.colorbox.php</span></li>
+                <li><span class="removed">/includes/auto_loaders/config.fual_slimbox.php</span></li>
                 <li>/includes/classes/bmz_image_handler_class.php</li>
+                <li><span class="removed">/includes/classes/observers/ColorBoxObserver.php</span></li>
+                <li><span class="removed">/includes/classes/observers/FualSlimboxObserver.php</span></li>
                 <li>/YOUR_ADMIN/includes/init_includes/init_image_handler.php</li>
             </ol></li>
         </ul></li>
