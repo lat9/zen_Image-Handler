@@ -1,6 +1,6 @@
 <?php
 /**
- * mod Image Handler 5.3.3
+ * mod Image Handler 5.4.0
  * bmz_image_handler.class.php
  * IH5 class for image manipulation
  *
@@ -795,8 +795,6 @@ class ih_image
             imagecopyresized($tmpimg, $srcimage, 0, 0, 0, 0, $newwidth, $newheight, $srcwidth, $srcheight);
         }
 
-        imagedestroy($srcimage);
-
         // initialize FIRST background image (transparent canvas)
         if ($ihConf['gdlib'] > 1 && function_exists("imagecreatetruecolor")) {
             $newimg = imagecreatetruecolor($this->canvas['width'], $this->canvas['height']);
@@ -819,7 +817,6 @@ class ih_image
 
         //$newimg = $this->imagemergealpha($newimg, $tmpimg, $startwidth, $startheight, $newwidth, $newheight);
         imagecopy($newimg, $tmpimg, $startwidth, $startheight, 0, 0, $newwidth, $newheight);
-        imagedestroy($tmpimg);
         $tmpimg = $newimg;
 
         if ($ihConf['gdlib'] > 1 && function_exists('imagesavealpha')){
@@ -830,7 +827,6 @@ class ih_image
             $this->watermark['image'] = $this->load_imageGD($this->watermark['file'], $this->watermark['image_type']);
             if ($this->watermark['image'] !== false) {
                 imagecopy($tmpimg, $this->watermark['image'], $this->watermark['startx'], $this->watermark['starty'], 0, 0, $this->watermark['width'], $this->watermark['height']);
-                imagedestroy($this->watermark['image']);
             }
         }
 
@@ -886,8 +882,6 @@ class ih_image
         } else {
             imagecopy($newimg, $tmpimg, 0, 0, 0, 0, $this->canvas['width'], $this->canvas['height']);
         }
-
-        imagedestroy($tmpimg);
 
         if ($ihConf['gdlib']>1 && function_exists('imagesavealpha')) {
             imagesavealpha($newimg, true);
@@ -1037,7 +1031,6 @@ class ih_image
                 $ok = false;
                 break;
         }
-        imagedestroy($image);
 
         return $ok;
     }

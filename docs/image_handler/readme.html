@@ -48,8 +48,8 @@ a[target=_blank] { text-decoration: underline; }
 </head>
 
 <body>
-    <h1>Image Handler<sup>5</sup> for Zen Cart v1.5.7 (and later)</h1>
-    <h3>Version 5.3.6 by lat9, Zen4All, brittainmark, torvista, proseLA, marco-pm and pilou2</h3>
+    <h1>Image Handler<sup>5</sup> for Zen Cart v1.5.8 (and later)</h1>
+    <h3>Version 5.4.0 by lat9, Zen4All, brittainmark, torvista, proseLA, marco-pm and pilou2</h3>
     <p>Current Support Thread at Zen Cart Forums: <a href="https://www.zen-cart.com/showthread.php?222983-Image-Handler-5-(for-v1-5-5)-Support-Thread" target="_blank">https://www.zen-cart.com/showthread.php?222983-Image-Handler-5-(for-v1-5-5)-Support-Thread</a></p>
 
     <p><strong>Notes:</strong></p>
@@ -57,7 +57,8 @@ a[target=_blank] { text-decoration: underline; }
         <li>The majority of this readme, other than installation instructions and change history, has been migrated online to the plugin's GitHub <a href="https://github.com/lat9/zen_Image-Handler" target="_blank">repository</a>.  That enables the readme to be updated as-required without the need to provide a plugin update for documentation corrections.</li>
         <li>Change history prior to v5.0.0 of <em>IH<sup>5</sup></em> has been archived on the plugin's GitHub repository.</li>
         <li>As of <em>IH</em><sup>5</sup> v5.1.11, the minimum PHP version supported is PHP 5.6.</li>
-        <li><b>As of <em>IH</em><sup>5</sup> v5.3.0, the minimum Zen Cart version supported is 1.5.7.</b></li>
+        <li>As of <em>IH</em><sup>5</sup> v5.3.0, the minimum Zen Cart version supported is 1.5.7.</li>
+        <li><b>As of <em>IH</em><sup>5</sup> v4.5.0, the minimum Zen Cart version supported is 1.5.8 and the minimum PHP version is 8.0</b></li>
     </ol>
 
     <hr>
@@ -89,8 +90,8 @@ define('SITEMAPXML_PRODUCTS_IMAGES_FUNCTION', '<b class="red">true</b>'); // tru
     <fieldset>
         <legend>Requirements</legend>
         <ul>
-            <li>Zen Cart v1.5.7 or later (not backwards compatible with older versions of Zen Cart).</li>
-            <li>PHP v5.6 or later (not backwards compatible with older versions of PHP).</li>
+            <li>Zen Cart v1.5.8 or later (not backwards compatible with older versions of Zen Cart).</li>
+            <li>PHP v8.0 or later (not backwards compatible with older versions of PHP).</li>
             <li><strong>Either</strong> GD libraries version 2 or greater, <strong>or</strong> ImageMagick version 6 or greater.</li>
             <li>If you are using Fual Slimbox or ColorBox for Zen Cart with Image Handler<sup>5</sup> you <strong>must</strong> read the &quot;Misc&quot; tab.</li>
         </ul>
@@ -177,7 +178,7 @@ define('SITEMAPXML_PRODUCTS_IMAGES_FUNCTION', '<b class="red">true</b>'); // tru
                 <li>YOUR_ADMIN <span class="smaller">(renamed)</span></li>
             </ol></li>
             <li>Return to your store's admin and click on <em>any</em> link. If you followed the instructions above, you will see a message in the message stack at the top of your admin screen confirming a successful install or upgrade.</li>
-            <li>Navigate to <strong>Admin &gt; Configuration &gt; Images</strong>, set <b>IH resize images</b> to <em>yes</em>.</li>
+            <li>Navigate to <strong>Admin :: Configuration :: Images</strong>, set <b>IH resize images</b> to <em>yes</em>.</li>
             <li>If you followed all instructions to the letter, you are ready to move on to the online <a href="https://github.com/lat9/zen_Image-Handler/wiki" target="_blank">documentation</a> to learn how to modify the default configuration settings.</li>
         </ol>
     </fieldset>
@@ -378,6 +379,13 @@ define('SITEMAPXML_PRODUCTS_IMAGES_FUNCTION', '<b class="red">true</b>'); // tru
 
     <h2>Change History</h2>
     <ul>
+        <li>v5.4.0-beta1, 2025-10-22:<ul>
+            <li>CHANGE: Remove deprecated (in PHP 8.5+) calls to <code>imagedestroy</code>.</li>
+            <li>The following files were changed:<ol>
+                <li>/includes/classes/bmz_image_handler_class.php</li>
+                <li>/YOUR_ADMIN/includes/init_includes/init_image_handler.php</li>
+            </ol></li>
+        </ul></li>
         <li>v5.3.6, 2025-06-26:<ul>
             <li>INTROP: Cast variables to prevent logs from non-standard notifications issued.</li>
             <li>The following files were changed:<ol>
