@@ -1,6 +1,6 @@
 <?php
 /**
- * mod Image Handler 5.0.1
+ * mod Image Handler 5.4.0
  * functions_bmz_io.php
  * general filesystem access handling
  *
@@ -103,7 +103,7 @@ function io_mkdir_p(string $target): int
     }
     //recursion
     if (io_mkdir_p(substr($target, 0, strrpos($target, '/')))) {
-        return mkdir($target, 0755); // crawl back up & create dir tree
+        return (int)mkdir($target, 0755); // crawl back up & create dir tree
     }
     return 0;
 }

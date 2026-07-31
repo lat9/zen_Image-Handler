@@ -1,14 +1,13 @@
 <?php
 // -----
 // Part of the "Image Handler" plugin, v5.0.0 and later, by Cindy Merkin a.k.a. lat9 (cindy@vinosdefrutastropicales.com)
-// Copyright (c) 2017-2025 Vinos de Frutas Tropicales
+// Copyright (c) 2017-2026 Vinos de Frutas Tropicales
 //
 // Last updated: IH v5.4.0
 // brittainmark 2023-02-06 allow webp image filss
 //
-if (!defined('IH_DEBUG_ADMIN')) {
-    define('IH_DEBUG_ADMIN', 'true'); //-Either 'true' or 'false'
-}
+zen_define_default('IH_DEBUG_ADMIN', 'true'); //-Either 'true' or 'false'
+
 class ImageHandlerAdmin
 {
     public bool $debug;
@@ -114,7 +113,7 @@ class ImageHandlerAdmin
 
     public function validateQuality($value): bool
     {
-        return (((int)$value) != $value || $value < 0 || $value > 85);
+        return (((int)$value) != $value || $value < 0 || $value > 100);
     }
 
     public function validateBackground(string $value): bool

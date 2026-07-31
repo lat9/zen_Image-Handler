@@ -329,11 +329,12 @@ define('SITEMAPXML_PRODUCTS_IMAGES_FUNCTION', '<b class="red">true</b>'); // tru
 
     <h2>Change History</h2>
     <ul>
-        <li>v5.4.0-beta1, 2025-10-22:<ul>
+        <li>v5.4.0-beta2, 2026-07-31:<ul>
             <li>CHANGE: Remove deprecated (in PHP 8.5+) calls to <code>imagedestroy</code>.</li>
             <li>CHANGE: Remove Fual-Slimbox and Colorbox integration; now required separate installation.</li>
             <li>CHANGE: Drop support for Zen Cart versions prior to 1.5.8 (language files renamed) and PHP versions less than 8.0.</li>
             <li>CHANGE: Add type-hints to functions and class properties/methods.</li>
+            <li>BUGFIX: Correct check for the various image-quality settings; values &gt; 85 and &lt; 100 were being reported as invalid.</li>
             <li>The following files were changed, <span class="added">added</span> or <span class="removed">removed</span>:<ol>
                 <li><span class="removed">/includes/auto_loaders/config.colorbox.php</span></li>
                 <li><span class="removed">/includes/auto_loaders/config.fual_slimbox.php</span></li>
@@ -344,7 +345,7 @@ define('SITEMAPXML_PRODUCTS_IMAGES_FUNCTION', '<b class="red">true</b>'); // tru
                 <li>/includes/functions/extra_functions/functions_bmz_image_handler.php</li>
                 <li>/includes/functions/extra_functions/functions_bmz_io.php</li>
                 <li>/YOUR_ADMIN/image_handler.php</li>
-                <li>/YOUR_ADMIN/includes/classes/observers/ImageHandlerAdmin.php</li>
+                <li>/YOUR_ADMIN/includes/classes/ImageHandlerAdmin.php</li>
                 <li>/YOUR_ADMIN/includes/functions/extra_functions/functions_bmz_io.php</li>
                 <li>/YOUR_ADMIN/includes/init_includes/init_image_handler.php</li>
                 <li><span class="added">/YOUR_ADMIN/includes/languages/english/ih_about.php</span></li>

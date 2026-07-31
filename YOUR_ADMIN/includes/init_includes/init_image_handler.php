@@ -1,13 +1,13 @@
 <?php 
 // -----
 // Part of the "Image Handler" plugin, v5.0.0 and later, by Cindy Merkin a.k.a. lat9 (https://vinosdefrutastropicales.com)
-// Copyright (c) 2017-2025 Vinos de Frutas Tropicales
+// Copyright (c) 2017-2026 Vinos de Frutas Tropicales
 //
 if (!defined('IS_ADMIN_FLAG')) {
     die('Illegal Access');
 }
 
-define('IH_CURRENT_VERSION', '5.4.0-beta1');
+define('IH_CURRENT_VERSION', '5.4.0-beta2');
 
 // -----
 // Wait until an admin is logged in before seeing if any initialization steps need to be performed.
