@@ -1,8 +1,8 @@
-# Image Handler v5.3.6
+# Image Handler v5.4.0
 
 The latest released version is available for download from the Zen Cart site, via [this](https://www.zen-cart.com/downloads.php?do=file&id=2169) link.  If you need basic installation help, and neither this information nor the included readme does not help you, please visit the [Image Handler v5.x Support Thread](https://www.zen-cart.com/showthread.php?222983).
 
-This version of Image Handler requires Zen Cart v1.5.7 or later and has been tested with Zen Cart v1.5.8, v2.0.x and v2.1.0 on PHP versions up to and including PHP 8.4.
+This version of Image Handler requires Zen Cart v1.5.8 or later and has been tested with Zen Cart v1.5.8 through v3.0.0-dev on PHP versions from 8.0 to 8.5.
 
 ## Purpose and Aim
 
