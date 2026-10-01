@@ -7,7 +7,7 @@ if (!defined('IS_ADMIN_FLAG')) {
     die('Illegal Access');
 }
 
-define('IH_CURRENT_VERSION', '5.4.0');
+define('IH_CURRENT_VERSION', '5.4.1-beta1');
 
 // -----
 // Wait until an admin is logged in before seeing if any initialization steps need to be performed.
@@ -319,6 +319,7 @@ if (isset($_SESSION['admin_id']) && (!defined('IH_RESIZE') || !defined('IH_VERSI
         $db->Execute(
             "UPDATE " . TABLE_CONFIGURATION . " 
                 SET configuration_value = '" . IH_CURRENT_VERSION . "',
+                    set_function = 'zen_cfg_read_only(',
                     configuration_group_id = $cgi,
                     sort_order = 1000
               WHERE configuration_key = 'IH_VERSION'
